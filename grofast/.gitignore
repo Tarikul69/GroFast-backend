@@ -1,0 +1,21 @@
+
+# Virtual Environments
+env/
+.pyc
+
+# IDEs and Editors
+.idea/
+.vscode
+ 
+
+ 
+
+# Ignore SQLite DB  files
+*.sqlite3
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
