@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'admin_panel',
     'shopowner_mobile_app',
     'users_mobile_app',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
