@@ -12,6 +12,7 @@ from .controller.shop_controller import shop_list, shop_registration
 ##########################################################
 @api_view(['POST'])
 def registration(request):
+
     if request.method == 'POST':
         # Extract data from request
         username = request.data.get('username')
@@ -47,7 +48,7 @@ def registration(request):
 
         # Return a success response
         return Response({"message": "User registered successfully."}, status=200)
-    
+     
 ##########################################################
 ################### Users Information ####################
 ##########################################################

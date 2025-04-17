@@ -17,8 +17,8 @@ def shop_registration(request):
         shop_phone_number = request.data.get('shop_phone_number')
         shop_type = request.data.get('shop_type')
         shop_status = request.data.get('shop_status')
-        shop_condition = request.data.get('shop_condition')
-        shop_rating = request.data.get('shop_rating', 0.00)
+        #shop_condition = request.data.get('shop_condition')
+        #shop_rating = request.data.get('shop_rating', 0.00)
         is_verified = request.data.get('is_verified', False)
         created_at = request.data.get('created_at')
 
@@ -34,8 +34,8 @@ def shop_registration(request):
             shop_phone_number=shop_phone_number,
             shop_type=shop_type,
             shop_status=shop_status,
-            shop_condition=shop_condition,
-            shop_rating=shop_rating,
+            #shop_condition=shop_condition,
+            #shop_rating=shop_rating,
             is_verified=is_verified,
             created_at=created_at
         )
@@ -58,18 +58,19 @@ def shop_list(request):
         data = {
             "shops": [
                 {
+                    "shop_id": shop.shop_id,
                     "shop_name": shop.shop_name,
                     "shop_address": shop.shop_address,
                     "shop_phone_number": shop.shop_phone_number,
                     "shop_type": shop.shop_type,
                     "shop_status": shop.shop_status,
-                    "shop_condition": shop.shop_condition,
-                    "shop_rating": str(shop.shop_rating),
+                    #"shop_condition": shop.shop_condition,
+                    #"shop_rating": str(shop.shop_rating),
                     "is_verified": shop.is_verified,
                     "created_at": str(shop.created_at)
                 } for shop in shops
             ]
         }
-        return JsonResponse(data, status=200)
+        return JsonResponse(data)
     return HttpResponseNotAllowed(['GET'])
          
