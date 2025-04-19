@@ -1,0 +1,36 @@
+/* Sidebar customizations */
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Card styling */
+.card {
+    border-radius: 10px;
+}
+
+/* Main content section */
+main {
+    margin-top: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}

@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 from .models import Users_table
 from rest_framework.decorators import api_view
 from .controller.shop_controller import shop_list, shop_registration
+from .controller.adminUI_controller import admin_index
 
 ##########################################################
 ################### users registration.###################
