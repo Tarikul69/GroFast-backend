@@ -11,6 +11,7 @@ from .controller.adminUI_controller import admin_index
 ##########################################################
 ################### users registration.###################
 ##########################################################
+
 @api_view(['POST'])
 def registration(request):
 

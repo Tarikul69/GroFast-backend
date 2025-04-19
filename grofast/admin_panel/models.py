@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
+# User Model
 class Users_table(models.Model):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
@@ -14,17 +16,17 @@ class Users_table(models.Model):
     def __str__(self):
         return self.username
 
+# Shop Model
 class shop(models.Model):
     shop_id = models.AutoField(primary_key=True)
     shop_name = models.CharField(max_length=255)
     shop_address = models.TextField()
     shop_phone_number = models.CharField(max_length=20, blank=True, null=True)
     shop_type = models.CharField(max_length=50, choices=[('grocery', 'Grocery'), ('electronics', 'Electronics'), ('clothing', 'Clothing')])
-    shop_status = models.CharField(max_length=20, choices=[('active', 'Active'), ('inactive', 'Inactive')])
-    #shop_condition = models.CharField(max_length=20, choices=[('new', 'New'), ('used', 'Used')])
-    #shop_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
+    shop_status = models.CharField(max_length=20, choices=[('active', 'Open'), ('inactive', 'Close')])
+    shop_condition = models.CharField(max_length=20, choices=[('new', 'New'), ('used', 'Used')])
+    shop_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     
-    def __str__(self):
-        return self.username
+    
