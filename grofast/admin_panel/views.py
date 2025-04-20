@@ -28,8 +28,10 @@ def registration(request):
         
         # Check if all required fields are present
         if not username or not email or not password:
-            raise ValidationError("Username, email, and password are required.")
-
+            return Response({"message": "Username, email, and password are required.", "status":"failed"}, status=400)
+        elif Users_table.objects.filter(username=username, email=email, phone_number=phone_number).exists():
+            return Response({"message": "User with this information already exists.", "status":"failed"}, status=400)
+        
         # Hash the password using Django's built-in method
         hashed_password = make_password(password)
 

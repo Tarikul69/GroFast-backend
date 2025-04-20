@@ -24,8 +24,11 @@ def shop_registration(request):
 
         # Check if all required fields are present
         if not shop_name or not shop_address or not shop_type:
-            raise ValidationError("Shop name, address, and type are required.")
-
+            return Response({"message": "Shop name, address, and type are required.", "status":"failed"}, status=400)
+        
+        elif shop.objects.filter(shop_name=shop_name, shop_phone_number=shop_phone_number).exists():
+            return Response({"message": "Shop with this information already exists.", "status":"failed"}, status=400)
+        
         # Create new shop instance
         shop_instance = shop(
             shop_id=shop_id,
