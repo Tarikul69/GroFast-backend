@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.hashers import make_password
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+
+from .serializers import UsersTableSerializer
 from .models import Users_table
 from rest_framework.decorators import api_view
 from .controller.shop_controller import shop_list, shop_registration
@@ -60,18 +62,6 @@ def registration(request):
 def users_list(request):
     if request.method == 'GET':
         users = Users_table.objects.all()
-        data = {
-            "users": [
-                {
-                    "username": user.username,
-                    "email": user.email,
-                    "phone_number": user.phone_number,
-                    "address": user.address,
-                    "profile_picture": user.profile_picture.url if user.profile_picture else None,
-                    "is_verified": user.is_verified,
-                    "created_at": user.created_at
-                } for user in users
-            ]
-        }
-        return JsonResponse(data, safe=False)
+        serializer = UsersTableSerializer(users, many=True)
+        return Response(serializer.data, status=200)
     return HttpResponseNotAllowed(['GET'])
