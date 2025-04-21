@@ -4,6 +4,8 @@ from rest_framework.exceptions import ValidationError
 from admin_panel.models import shop
 from rest_framework.decorators import api_view
 
+from admin_panel.serializers import ShopSerializer
+
 ############################################### 
 ############# Register a New Shop #############
 ###############################################
@@ -58,22 +60,7 @@ def shop_list(request):
     # Get all shops from the database
     if request.method == 'GET':   
         shops = shop.objects.all()
-        data = {
-            "shops": [
-                {
-                    "shop_id": shop.shop_id,
-                    "shop_name": shop.shop_name,
-                    "shop_address": shop.shop_address,
-                    "shop_phone_number": shop.shop_phone_number,
-                    "shop_type": shop.shop_type,
-                    "shop_status": shop.shop_status,
-                    "shop_condition": shop.shop_condition,
-                    "shop_rating": str(shop.shop_rating),
-                    "is_verified": shop.is_verified,
-                    "created_at": str(shop.created_at)
-                } for shop in shops
-            ]
-        }
-        return JsonResponse(data)
+        serializer = ShopSerializer(shops, many=True)
+        return Response(serializer.data, status=200)
     return HttpResponseNotAllowed(['GET'])
          
