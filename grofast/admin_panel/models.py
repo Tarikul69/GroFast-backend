@@ -33,7 +33,7 @@ class shop(models.Model):
  #review_table 
 class Review_table(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Users_table.users_id, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users_table, on_delete=models.CASCADE)
     shop = models.ForeignKey(shop, on_delete=models.CASCADE)
     rating = models.DecimalField(max_digits=3, decimal_places=2)
 
