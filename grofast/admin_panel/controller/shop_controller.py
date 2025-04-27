@@ -3,8 +3,13 @@ from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from admin_panel.models import shop
 from rest_framework.decorators import api_view
-
 from admin_panel.serializers import ShopSerializer
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.http import HttpResponseNotAllowed
+from ..models import shop
+from ..serializers import ShopSerializer
 
 ############################################### 
 ############# Register a New Shop #############
@@ -55,12 +60,19 @@ def shop_registration(request):
 ##################################################
 ################### Shop List ####################
 ##################################################
+ 
+
 @api_view(['GET'])
 def shop_list(request):
-    # Get all shops from the database
-    if request.method == 'GET':   
-        shops = shop.objects.all()
-        serializer = ShopSerializer(shops, many=True)
-        return Response(serializer.data, status=200)
-    return HttpResponseNotAllowed(['GET'])
+    if request.method == 'GET':
+        shops = shop.objects.all()  # Fetch all shop records
+        serializer = ShopSerializer(shops, many=True)  # Serialize them
+        return Response({
+            'status': True,
+            'message': 'Shop list fetched successfully.',
+            'data': serializer.data
+        }, status=200)
+    else:
+        return HttpResponseNotAllowed(['GET'])
+
          

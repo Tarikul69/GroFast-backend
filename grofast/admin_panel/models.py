@@ -4,7 +4,7 @@ from django.db import models
 
 # User Model
 class Users_table(models.Model):
-    users_id = models.AutoField(primary_key=True)
+    #users_id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
@@ -26,7 +26,7 @@ class shop(models.Model):
     shop_type = models.CharField(max_length=50, choices=[('grocery', 'Grocery'), ('electronics', 'Electronics'), ('clothing', 'Clothing')])
     shop_status = models.CharField(max_length=20, choices=[('active', 'Open'), ('inactive', 'Close')])
     shop_condition = models.CharField(max_length=20, choices=[('new', 'New'), ('used', 'Used')])
-    shop_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
+    #shop_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     
