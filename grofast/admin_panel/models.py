@@ -29,7 +29,30 @@ class shop(models.Model):
     #shop_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+#Product table Model
+class Product_table(models.Model):
+    product_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=255)
+    product_description = models.TextField()
+    product_price = models.DecimalField(max_digits=10, decimal_places=2)
+    product_image = models.ImageField(upload_to='product_images/', blank=True, null=True)
+    product_quantity = models.IntegerField(max_length=10)
+    shop_id = models.ForeignKey(shop, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.product_name
     
+#Category table Model
+class Category_table(models.Model):
+    category_id = models.AutoField(primary_key=True)
+    category_name = models.CharField(max_length=255)
+    shop_id = models.ForeignKey(shop, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.category_name
  #review_table 
 class Review_table(models.Model):
     id = models.AutoField(primary_key=True)
