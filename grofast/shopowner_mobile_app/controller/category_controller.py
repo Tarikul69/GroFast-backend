@@ -36,7 +36,10 @@ def category_list(request):
 @api_view(['GET'])
 def category_list_id(request, shop_id):
     if request.method == 'GET':
+
         categories = Category_table.objects.filter(shop_id=shop_id)
+        if not categories.exists():
+            return Response({"message": "No categories found for this shop.", "status": "failed"} )
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
     else:
