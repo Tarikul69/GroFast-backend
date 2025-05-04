@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .controller.category_controller import  category_list
+from .controller.category_controller import  category_list, category_list_id
 
 # Create your views here.
 def api(request):

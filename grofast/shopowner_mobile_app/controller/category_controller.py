@@ -7,7 +7,7 @@ from ..serializers import CategorySerializer
 ###################################################
 ############# Add a New Category ##################
 ###################################################
-@api_view(['POST', 'GET'])
+@api_view(['POST'])
 def category_list(request):
     # Function to add a new category
     if request.method == 'POST':
@@ -29,12 +29,15 @@ def category_list(request):
          
         category_instance.save() 
         return Response({"message": "Category added successfully."}, status=200)
+    else:
+      return Response({"message": "Method not allowed."}, status=405)
     
-    elif request.method == 'GET':
-        # Function to get all categories
-        categories = Category_table.objects.all()
+
+@api_view(['GET'])
+def category_list_id(request, shop_id):
+    if request.method == 'GET':
+        categories = Category_table.objects.filter(shop_id=shop_id)
         serializer = CategorySerializer(categories, many=True)
-        return Response(serializer.data, status=200)
-    
+        return Response(serializer.data)
     else:
       return Response({"message": "Method not allowed."}, status=405)
