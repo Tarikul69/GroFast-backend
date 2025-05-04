@@ -4,8 +4,6 @@ from rest_framework.exceptions import ValidationError
 from admin_panel.models import shop
 from rest_framework.decorators import api_view
 from admin_panel.serializers import ShopSerializer
-
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import HttpResponseNotAllowed
 from ..models import shop
