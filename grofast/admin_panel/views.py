@@ -9,6 +9,7 @@ from .models import Users_table
 from rest_framework.decorators import api_view
 from .controller.shop_controller import shop_list, shop_registration
 from .controller.adminUI_controller import admin_index
+from .controller.category_controller import  category_registration
 
 ##########################################################
 ################### users registration.###################

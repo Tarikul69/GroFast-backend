@@ -12,7 +12,8 @@ urlpatterns = [
     path('shop_list/', views.shop_list, name='shop_list'),
     #path('api/register/', RegisterAPI.as_view(), name='register'),
     #path('api/login/', LoginAPI.as_view(), name='login'),
-
+    #path('category_list/', views.category_list, name='category_list'),
+      
     #Admin Panel UI path
     path('admin_index/', views.admin_index, name='admin_index'),
     

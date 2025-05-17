@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Users_table, shop
+from .models import Category_table, Users_table, shop
 from django.contrib.auth.models import User
  
 
@@ -16,5 +16,10 @@ class ShopSerializer(serializers.ModelSerializer):
         fields = '__all__'
       
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category_table
+        fields = '__all__'
+        depth = 1
 
-
+ 
