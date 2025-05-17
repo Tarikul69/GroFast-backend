@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path('api/', views.api, name='api'),
     path('product_category/', views.category_list, name='product_category'),
-    path('category_list_byid/<int:shop_id>/', views.category_list_id, name='category_list_byid'),
+    path('category_list_id/<int:shop_id>/', views.category_list_id, name='category_list_id'),
 ]
