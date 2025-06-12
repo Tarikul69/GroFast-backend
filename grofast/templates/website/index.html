@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    </head>
+</head>
 
 <body class="bg-gray-50 text-gray-800">
 
@@ -17,10 +17,14 @@
     <header class="bg-green-600 text-white p-4 shadow">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">GroFast</h1>
-            <nav class="space-x-4">
+            <nav class="space-x-4 flex items-center">
                 <a href="#categories" class="hover:underline">Categories</a>
                 <a href="#shops" class="hover:underline">Shops</a>
+                <a href="#offers" class="hover:underline">Offers</a>
                 <a href="#contact" class="hover:underline">Contact</a>
+                <a href="/website/download_app/"
+                    class="ml-4 bg-white text-green-600 px-3 py-1 rounded hover:bg-green-100 transition">Download
+                    App</a>
             </nav>
         </div>
     </header>
@@ -49,6 +53,7 @@
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Product Categories</h2>
             <div class="flex gap-6 overflow-x-auto px-4">
+                <!-- Category Cards -->
                 <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
                     <h3 class="text-xl font-semibold mb-2">Fruits</h3>
                     <p>Fresh and seasonal fruits.</p>
@@ -65,15 +70,16 @@
                     <h3 class="text-xl font-semibold mb-2">Bakery</h3>
                     <p>Bread, cookies, and cakes.</p>
                 </div>
-                </div>
+            </div>
         </div>
     </section>
-    
+
     <!-- Shop List -->
     <section id="shops" class="py-10 bg-gray-100">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Shop by Vendor</h2>
             <div class="flex gap-6 overflow-x-auto px-4">
+                <!-- Vendor Cards -->
                 <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
                     <h3 class="text-xl font-semibold mb-2">GreenLeaf Grocery</h3>
                     <p>Known for organic vegetables and herbs.</p>
@@ -85,6 +91,31 @@
                 <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
                     <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
                     <p>Premium milk, cheese, and yogurt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers" class="py-10 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Today's Offers</h2>
+            <div class="flex gap-6 overflow-x-auto px-4">
+                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">GreenLeaf Grocery</h3>
+                    <p>Flat 20% off on all leafy greens.</p>
+                </div>
+                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">FruitKing</h3>
+                    <p>Buy 1 Get 1 Free on mangoes!</p>
+                </div>
+                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
+                    <p>10% off on all dairy products.</p>
+                </div>
+                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Baker’s Hub</h3>
+                    <p>Free cookies with every bread pack.</p>
                 </div>
             </div>
         </div>
