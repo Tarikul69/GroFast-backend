@@ -1,159 +1,121 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grocy - Fresh Grocery Delivery</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Optional: Animation library (for button pulse effect) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>GroFast - Grocery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </head>
 
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f8f9fa;
-        }
+<body class="bg-gray-50 text-gray-800">
 
-        .navbar {
-            background-color: #08820c;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: white !important;
-            font-weight: 500;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(76, 175, 80, 0.85), rgba(76, 175, 80, 0.85)),
-                url('https://images.unsplash.com/photo-1589987607627-3c5c95088858') no-repeat center center/cover;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-        }
-
-        .features {
-            padding: 60px 0;
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            color: #4CAF50;
-        }
-
-        .cta-section {
-            background-color: #fff3cd;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-weight: bold;
-        }
-
-        .footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">GroFast</a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon text-dark"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Download</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-            </div>
+    <!-- Header -->
+    <header class="bg-green-600 text-white p-4 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">GroFast</h1>
+            <nav class="space-x-4">
+                <a href="#categories" class="hover:underline">Categories</a>
+                <a href="#shops" class="hover:underline">Shops</a>
+                <a href="#contact" class="hover:underline">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section with Carousel -->
-    <section class="hero">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1611095564980-12f3c1db69e7" class="d-block w-100"
-                        alt="Grocery 1" style="height: 500px; object-fit: cover;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Get Your Groceries Delivered Fast & Fresh</h1>
-                        <p>Order from your phone. Delivered in minutes. No lines, no stress.</p>
-                        <a href="#"
-                            class="btn btn-warning btn-lg animate__animated animate__pulse animate__infinite">Download the
-                            App</a>
-                    </div>
+    <!-- Hero Carousel -->
+    <section class="my-6">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="{% static '/images/img1.png' %}" class="w-full h-64 object-cover" alt="Slide 1">
                 </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1606813902912-0098fda38de0" class="d-block w-100"
-                        alt="Grocery 2" style="height: 500px; object-fit: cover;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Fresh Produce At Your Fingertips</h1>
-                        <p>From local farms to your table — all in one tap.</p>
-                        <a href="#"
-                            class="btn btn-warning btn-lg animate__animated animate__pulse animate__infinite">Download the
-                            App</a>
-                    </div>
+                <div class="swiper-slide">
+                    <img src="https://source.unsplash.com/1200x400/?fresh-fruits" class="w-full h-64 object-cover"
+                        alt="Slide 2">
                 </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1586201375754-3e4e1c5d779d" class="d-block w-100"
-                        alt="Grocery 3" style="height: 500px; object-fit: cover;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Save Time. Save Money.</h1>
-                        <p>Shop smarter with exclusive deals and fast delivery.</p>
-                        <a href="#"
-                            class="btn btn-warning btn-lg animate__animated animate__pulse animate__infinite">Download the
-                            App</a>
-                    </div>
+                <div class="swiper-slide">
+                    <img src="{% static '/images/img1.png' %}" class="w-full h-64 object-cover" alt="Slide 3">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
+    <!-- Product Categories -->
+    <section id="categories" class="py-10 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Product Categories</h2>
+            <div class="flex gap-6 overflow-x-auto px-4">
+                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Fruits</h3>
+                    <p>Fresh and seasonal fruits.</p>
+                </div>
+                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Vegetables</h3>
+                    <p>Organic and local greens.</p>
+                </div>
+                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Dairy</h3>
+                    <p>Milk, butter, and more.</p>
+                </div>
+                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">Bakery</h3>
+                    <p>Bread, cookies, and cakes.</p>
+                </div>
+                </div>
+        </div>
+    </section>
+    
+    <!-- Shop List -->
+    <section id="shops" class="py-10 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Shop by Vendor</h2>
+            <div class="flex gap-6 overflow-x-auto px-4">
+                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">GreenLeaf Grocery</h3>
+                    <p>Known for organic vegetables and herbs.</p>
+                </div>
+                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">FruitKing</h3>
+                    <p>Specialized in exotic and seasonal fruits.</p>
+                </div>
+                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
+                    <p>Premium milk, cheese, and yogurt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Start Shopping Smarter Today!</h2>
-            <p class="mb-4">Join thousands of happy customers who get their groceries delivered faster.</p>
-            <a href="#" class="btn btn-success btn-lg">Download Now</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-10 bg-green-600 text-white text-center">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-2">Contact Us</h2>
+            <p>Email: contact@freshmart.com | Phone: (123) 456-7890</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Grocy. All rights reserved.</p>
+    <footer class="bg-green-700 text-white text-center p-4">
+        <p>&copy; 2025 FreshMart. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
 </body>
 
 </html>
