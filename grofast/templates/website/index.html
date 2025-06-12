@@ -4,69 +4,134 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GroFast - Grocery Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        /* Fix swiper slide image size */
+        .swiper-slide img {
+            height: 400px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+    
+        /* Hide scrollbar (cross-browser) for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-green-600 text-white p-4 shadow">
-        <div class="container mx-auto flex justify-between items-center">
+    <!-- Header / Navbar -->
+    <header class="bg-green-600 text-white shadow relative">
+        <div class="container mx-auto flex justify-between items-center p-4">
             <h1 class="text-2xl font-bold">GroFast</h1>
-            <nav class="space-x-4 flex items-center">
-                <a href="#categories" class="hover:underline">Categories</a>
-                <a href="#shops" class="hover:underline">Shops</a>
-                <a href="#offers" class="hover:underline">Offers</a>
-                <a href="#contact" class="hover:underline">Contact</a>
+<!-- Mobile menu button -->
+<button id="menuBtn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
+
+<!-- Desktop Navigation Menu -->
+<nav id="navMenu" class="hidden md:flex md:items-center md:space-x-6">
+    <a href="#categories" class="block py-2 md:py-0 hover:underline">Categories</a>
+    <a href="#shops" class="block py-2 md:py-0 hover:underline">Shops</a>
+    <a href="#offers" class="block py-2 md:py-0 hover:underline">Offers</a>
+    <a href="#contact" class="block py-2 md:py-0 hover:underline">Contact</a>
                 <a href="/website/download_app/"
-                    class="ml-4 bg-white text-green-600 px-3 py-1 rounded hover:bg-green-100 transition">Download
+                    class="mt-2 md:mt-0 inline-block bg-white text-green-600 px-4 py-1 rounded hover:bg-green-100 transition">Download
                     App</a>
             </nav>
         </div>
+<!-- Mobile menu dropdown -->
+<div id="mobileMenu" class="md:hidden bg-green-600 text-white hidden flex-col space-y-2 px-4 pb-4">
+    <a href="#categories" class="block py-2 hover:underline border-b border-green-500">Categories</a>
+    <a href="#shops" class="block py-2 hover:underline border-b border-green-500">Shops</a>
+    <a href="#offers" class="block py-2 hover:underline border-b border-green-500">Offers</a>
+    <a href="#contact" class="block py-2 hover:underline border-b border-green-500">Contact</a>
+    <a href="/website/download_app/"
+        class="block bg-white text-green-600 px-4 py-2 rounded hover:bg-green-100 transition text-center font-semibold">Download
+        App</a>
+</div>
     </header>
 
     <!-- Hero Carousel -->
-    <section class="my-6">
-        <div class="swiper-container">
+    <section class="my-8 max-w-7xl mx-auto px-4">
+        <div class="swiper-container rounded-lg overflow-hidden shadow-lg">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="{% static '/images/img1.png' %}" class="w-full h-64 object-cover" alt="Slide 1">
+                    <img src="{% static '/images/img1.png' %}" alt="Slide 1" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://source.unsplash.com/1200x400/?fresh-fruits" class="w-full h-64 object-cover"
-                        alt="Slide 2">
+                    <img src="https://source.unsplash.com/1200x400/?fresh-fruits" alt="Slide 2" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="{% static '/images/img1.png' %}" class="w-full h-64 object-cover" alt="Slide 3">
+                    <img src="{% static '/images/img1.png' %}" alt="Slide 3" />
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-prev text-green-700"></div>
+            <div class="swiper-button-next text-green-700"></div>
         </div>
     </section>
 
     <!-- Product Categories -->
-    <section id="categories" class="py-10 bg-white">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Product Categories</h2>
-            <div class="flex gap-6 overflow-x-auto px-4">
-                <!-- Category Cards -->
-                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+    <section id="categories" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Product Categories</h2>
+            <div class="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-2 sm:px-0 scrollbar-hide">
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">Fruits</h3>
                     <p>Fresh and seasonal fruits.</p>
                 </div>
-                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">Vegetables</h3>
                     <p>Organic and local greens.</p>
                 </div>
-                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">Dairy</h3>
                     <p>Milk, butter, and more.</p>
                 </div>
-                <div class="bg-green-100 min-w-[200px] p-4 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">Bakery</h3>
+                    <p>Bread, cookies, and cakes.</p>
+                </div>
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">Bakery</h3>
+                    <p>Bread, cookies, and cakes.</p>
+                </div>
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">Bakery</h3>
+                    <p>Bread, cookies, and cakes.</p>
+                </div>
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">Bakery</h3>
+                    <p>Bread, cookies, and cakes.</p>
+                </div>
+                <div
+                    class="min-w-[280px] bg-green-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">Bakery</h3>
                     <p>Bread, cookies, and cakes.</p>
                 </div>
@@ -75,20 +140,31 @@
     </section>
 
     <!-- Shop List -->
-    <section id="shops" class="py-10 bg-gray-100">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Shop by Vendor</h2>
-            <div class="flex gap-6 overflow-x-auto px-4">
-                <!-- Vendor Cards -->
-                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+    <section id="shops" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Shop by Vendor</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">GreenLeaf Grocery</h3>
                     <p>Known for organic vegetables and herbs.</p>
                 </div>
-                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">FruitKing</h3>
                     <p>Specialized in exotic and seasonal fruits.</p>
                 </div>
-                <div class="bg-white min-w-[250px] p-6 rounded-lg shadow">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
+                    <p>Premium milk, cheese, and yogurt.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
+                    <p>Premium milk, cheese, and yogurt.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
+                    <p>Premium milk, cheese, and yogurt.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
                     <p>Premium milk, cheese, and yogurt.</p>
                 </div>
@@ -97,56 +173,43 @@
     </section>
 
     <!-- Offers Section -->
-    <section id="offers" class="py-10 bg-white">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Today's Offers</h2>
-            <div class="flex gap-6 overflow-x-auto px-4">
-                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+    <section id="offers" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Today's Offers</h2>
+            <div class="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory px-2 sm:px-0 scrollbar-hide">
+                <div
+                    class="min-w-[280px] bg-yellow-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">GreenLeaf Grocery</h3>
                     <p>Flat 20% off on all leafy greens.</p>
                 </div>
-                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-yellow-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">FruitKing</h3>
                     <p>Buy 1 Get 1 Free on mangoes!</p>
                 </div>
-                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-yellow-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">DairyLand</h3>
                     <p>10% off on all dairy products.</p>
                 </div>
-                <div class="bg-yellow-100 min-w-[250px] p-6 rounded-lg shadow">
+                <div
+                    class="min-w-[280px] bg-yellow-100 p-6 rounded-lg shadow-md snap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
                     <h3 class="text-xl font-semibold mb-2">Baker’s Hub</h3>
                     <p>Free cookies with every bread pack.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-10 bg-green-600 text-white text-center">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-2">Contact Us</h2>
-            <p>Email: contact@freshmart.com | Phone: (123) 456-7890</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-green-700 text-white text-center p-4">
-        <p>&copy; 2025 FreshMart. All rights reserved.</p>
-    </footer>
-
-    <script>
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
-</body>
-
-</html>
+                <div
+                    class="min-w-[280px] bg-yellow-100 p-6 rounded-lg shadow-mdsnap-start flex-shrink-0 hover:shadow-lg transition cursor-pointer">
+                    <h3 class="text-xl font-semibold mb-2">OrganicMart</h3>
+                    <p>Special discounts on weekend.</p>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    </section> <!-- Footer -->
+                    <footer id="contact" class="bg-green-700 text-white py-6 mt-12 text-center">
+                        <p>&copy; 2025 GroFast. All rights reserved.</p>
+                    </footer> <!-- JS for Swiper and Navbar Toggle -->
+                    <script> const swiper = new Swiper('.swiper-container', { loop: true, pagination: { el: '.swiper-pagination', }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', }, autoplay: { delay: 3000, }, }); document.getElementById('menuBtn').addEventListener('click', () => { const mobileMenu = document.getElementById('mobileMenu'); mobileMenu.classList.toggle('hidden'); }); </script>
+                    </body>
+                    
+                    </html>
