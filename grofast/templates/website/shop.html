@@ -11,7 +11,7 @@
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
-    
+
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -38,7 +38,7 @@
             <a href="#contact" class="block py-2">Contact</a>
         </div>
     </nav>
-    
+
     <!-- Script to Toggle Menu -->
     <script>
         document.getElementById('menu-btn').addEventListener('click', () => {
@@ -95,7 +95,7 @@
         class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg text-2xl z-50">
         🛒
     </button>
-    
+
     <!-- Cart Sidebar -->
     <div id="cartSidebar"
         class="fixed top-0 right-0 w-80 bg-white h-full shadow-lg transform translate-x-full transition-transform z-50 overflow-y-auto">
@@ -110,61 +110,53 @@
             <button class="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700">Checkout</button>
         </div>
     </div>
-    
+
     <!-- Footer -->
     <footer class="bg-green-600 text-white text-center py-6 mt-8">
         <p>&copy; 2025 GroFast. All rights reserved.</p>
     </footer>
-    
+
     <!-- JavaScript -->
     <script>
-       art = {};
-    
-            function toggleCart() {
-                const cartSidebar = document.getElementById("cartSidebar");
-                cartSidebar.classList.toggle("translate-x-full");
-            }
-    
-            function addToCart(id, name, price, image) {
-                if (!cart[id]) {
-                    cart[id] = { name, price, image, quantity: 1 };
-                } else {
-                    cart[id].quantity += 1;
-                }
-                renderCart();
-            }
-    
-            function renderCart() {
-                const cartItems = document.getElementById("cartItems");
-                cartItems.innerHTML = "";
-                if (Object.keys(cart).length === 0) {
-                    cartItems.innerHTML = `<p class="text-gray-500 text-sm">No products in cart yet.</p>`;
-                    return;
-                }
-                for (const id in cart) {
-                    const item = cart[id];
-                    cartItems.innerHTML += `
-              <div class="flex items-center gap-4">
-                <img src="${item.image}" class="w-14 h-14 object-cover rounded" />
-                <div>
-                  <h4 class="font-semibold">${item.name}</h4>
-                  <p class="text-sm text-gray-600">${item.quantity} × $${item.price}</p>
-                </div>
-              </div>
-        `;
-                }
-            }
+        const cart = {};
 
-            function filterByCategory(category) {
-                const cards = document.querySelectorAll(".product-card");
-                cards.forEach(card => {
-                    if (card.dataset.category === category || category === "All") {
-                        card.classList.remove("hidden");
-                    } else {
-                        card.classList.add("hidden");
-                    }
-                });
+        function toggleCart() {
+            const cartSidebar = document.getElementById("cartSidebar");
+                        .toggle("translate-x-full");
+               dToCart(id, name, price, image) {
+          id                          cart[i            ame, price, image, quanti                          } else {
+                cart[id].quantity += 1;
+                }
+            renderCart();
+        }
+
+                     rend             {
+            const cartItems = document.get                "cartItems");
+                       ms.innerHTML = "";
+            if (Object.keys(c                === 0) {
+                    cartItems.innerHTML = `<p                -gr                sm">No products             yet.                            return;
+                }
+            for (const id in cart) {
+                                 cart[id];
+                               nnerHTML += `
+          <div class="fl                    gap-4">
+            <img src="${item.image}" class="w-14 h-14 object-cover rounded" />                    v>
+                      cl                mibold">${item.name}</h4>                    p class="text-sm text-gr                    uantity} × $${item.price}</p>
+            </div>
+          </div>
+        `;
             }
+        }
+
+        function filterByCategory(category) {
+            const cards = document.querySelectorAll(".product-card");
+            cards.forEach(card => {
+                if (card.dataset.category === category || category === "All") {
+                    card                emo            en");                      } else {
+                                   ist.add("hidden");
+                }
+            });
+        }
         </script>
 
 </body>
