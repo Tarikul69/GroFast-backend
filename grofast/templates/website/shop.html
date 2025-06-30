@@ -122,11 +122,11 @@
 
         function toggleCart() {
             const cartSidebar = document.getElementById("cartSidebar");
-                        .toggle("translate-x-full");
-               dToCart(id, name, price, image) {
-          id                          cart[i            ame, price, image, quanti                          } else {
+                            .toggle("translate-x-full");
+                   dToCart(id, name, price, image) {
+          id                              cart[i                ame, price, image, quanti                              } else {
                 cart[id].quantity += 1;
-                }
+            }
             renderCart();
         }
 
@@ -135,13 +135,15 @@
                        ms.innerHTML = "";
             if (Object.keys(c                === 0) {
                     cartItems.innerHTML = `<p                -gr                sm">No products             yet.                            return;
-                }
+            }
             for (const id in cart) {
-                                 cart[id];
-                               nnerHTML += `
-          <div class="fl                    gap-4">
-            <img src="${item.image}" class="w-14 h-14 object-cover rounded" />                    v>
-                      cl                mibold">${item.name}</h4>                    p class="text-sm text-gr                    uantity} × $${item.price}</p>
+                const item = cart[id];
+                cartItems.innerHTML += `
+          <div class="flex items-center gap-4">
+            <img src="${item.image}" class="w-14 h-14 object-cover rounded" />
+            <div>
+              <h4 class="font-semibold">${item.name}</h4>
+              <p class="text-sm text-gray-600">${item.quantity} × $${item.price}</p>
             </div>
           </div>
         `;
@@ -152,12 +154,12 @@
             const cards = document.querySelectorAll(".product-card");
             cards.forEach(card => {
                 if (card.dataset.category === category || category === "All") {
-                    card                emo            en");                      } else {
-                                   ist.add("hidden");
+                    card                            emo                        en");                                  } else {
+                                               ist.add("hidden");
                 }
             });
         }
-        </script>
+    </script>
 
 </body>
 
