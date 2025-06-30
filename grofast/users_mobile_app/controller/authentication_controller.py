@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authtoken.models import Token
-from serializers import RegisterSerializer, LoginSerializer
+from users_mobile_app.serializers import RegisterSerializer, LoginSerializer
 
 @api_view(['POST'])
 def register_user(request):
