@@ -1,5 +1,8 @@
 {
     "python.analysis.extraPaths": [
         "./grofast/admin_panel"
+    ],
+    "cSpell.words": [
+        "corsheaders"
     ]
 }
