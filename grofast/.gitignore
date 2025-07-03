@@ -2,6 +2,7 @@
 # Virtual Environments
 env/
 .pyc
+.env
 
 # IDEs and Editors
 .idea/

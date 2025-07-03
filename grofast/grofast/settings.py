@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
+DEBUG = config('DEBUG', default=False, cast=bool)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -84,9 +86,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'grofast.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 ####################################################
 #########SQLite database configuration#############
 ####################################################
@@ -97,20 +96,18 @@ WSGI_APPLICATION = 'grofast.wsgi.application'
 #     }
 # }
 ####################################################
-#########PostgreSQL database configuration##########
+#########Database Configuration##########
 ####################################################
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_django',
-        'USER': 'postgres',
-        'PASSWORD': '123456789',
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
+        'ENGINE': config('ENGINE'),  # or your DB engine
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
