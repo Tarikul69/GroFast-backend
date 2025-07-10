@@ -28,7 +28,7 @@ jobs:
 
     env:
       DEBUG: 0
-      SECRET_KEY: your-secret-key
+      SECRET_KEY: django-insecure-g(npd83pyofjxz+@my(sfdgs&88$^)l@$ilr)yj_ivl5*iaglm
       DB_NAME: myproject
       DB_USER: postgres
       DB_PASSWORD: 123456789
@@ -48,8 +48,10 @@ jobs:
 
     - name: Run migrations
       run: |
+        cd grofast
         python manage.py migrate
 
     - name: Run tests
       run: |
+        cd grofast
         python manage.py test
