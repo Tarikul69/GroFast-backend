@@ -27,6 +27,7 @@ jobs:
 
     env:
       DEBUG: 0
+      EMAIL_BACKEND: "django.core.mail.backends.console.EmailBackend"
       SECRET_KEY: django-insecure-g(npd83pyofjxz+@my(sfdgs&88$^)l@$ilr)yj_ivl5*iaglm
       ENGINE: django.db.backends.postgresql
       DB_NAME: myproject
