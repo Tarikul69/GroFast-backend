@@ -50,10 +50,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r grofast/requirements.txt
 
-    - name: Run migrations
-      run: |
-        cd grofast
-        python manage.py migrate
+    #- name: Run migrations
+     # run: |
+      #  cd grofast
+      #  python manage.py migrate
 
     - name: Run tests
       run: |
