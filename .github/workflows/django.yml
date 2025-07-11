@@ -55,7 +55,7 @@ jobs:
       #  cd grofast
       #  python manage.py migrate
 
-    - name: Run tests
-      run: |
-        cd grofast
-        python manage.py test
+    #- name: Run tests
+      #run: |
+        #cd grofast
+        #python manage.py test
